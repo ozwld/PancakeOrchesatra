@@ -18,7 +18,10 @@ const AuthProvider: FC = ({ children }) => {
     });
   }, []);
 
-  /* 下階層のコンポーネントをラップする */
+  //   ここで firebase にログインしてるかチェック
+  if (!currentUser) {
+    return <></>;
+  }
   return (
     <AuthContext.Provider value={{ currentUser: currentUser }}>
       {children}
